@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:22:51 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/20 16:04:27 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:54:57 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ void	*ft_calloc(size_t cnt, size_t size)
 {
 	void	*p;
 
-	p = malloc(cnt + size);
+	if (0x7FFFFFFFFFFFFFFFLL / cnt < size)
+		return (NULL);
+	p = malloc(cnt * size);
 	if (!p)
 		return (NULL);
-	ft_bzero(p, cnt + size);
+	ft_bzero(p, cnt * size);
 	return (p);
 }

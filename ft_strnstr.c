@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:32:43 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/24 11:11:06 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 15:04:27 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,16 +19,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t n)
 {
 	size_t	haystack_len;
 	size_t	needle_len;
-	size_t	i;
 
-	haystack_len = ft_strlen(haystack);
-	if (haystack_len > n)
-		haystack_len = n;
+	haystack_len = 0;
+	while (haystack[haystack_len] && haystack_len < n)
+		haystack_len++;
 	needle_len = ft_strlen(needle);
-	i = 0;
-	while ((i++) + needle_len < haystack_len)
+	while (needle_len <= haystack_len--)
 	{
-		if (ft_strncmp(haystack, needle, needle_len))
+		if (!ft_strncmp(haystack, needle, needle_len))
 			return ((char *)(haystack));
 		haystack++;
 	}

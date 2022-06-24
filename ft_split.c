@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:01:23 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/24 11:14:00 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 16:02:07 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 char			*ft_strchr(const char *s, int c);
 char			*ft_substr(const char *s, unsigned int start, size_t len);
+static void		free_strarr(char **arr);
 static size_t	count_word(const char *s, char c);
 
 char	**ft_split(const char *s, char c)
 {
 	char	**words;
 	size_t	word_count;
+	size_t	len;
 	size_t	i;
 
 	word_count = count_word(s, c);
@@ -31,17 +33,27 @@ char	**ft_split(const char *s, char c)
 	{
 		while (*s == c)
 			s++;
-		words[i] = ft_substr(s, 0, (size_t)(ft_strchr(s, c) - s));
+		len = (size_t)(ft_strchr(s, c) - s);
+		words[i] = ft_substr(s, 0, len);
 		if (!words[i])
 		{
-			while (i--)
-				free(words[i]);
-			free(words);
+			free_strarr(words);
 			return (NULL);
 		}
 		s = ft_strchr(s, c);
+		i++;
 	}
 	return (words);
+}
+
+static void	free_strarr(char **arr)
+{
+	char	*p;
+
+	p = *arr;
+	while (p)
+		free(p++);
+	free(arr);
 }
 
 static size_t	count_word(const char *s, char c)
@@ -49,17 +61,13 @@ static size_t	count_word(const char *s, char c)
 	size_t	cnt;
 
 	cnt = 0;
+	if (*s != c)
+		cnt++;
 	while (*s)
 	{
-		while (*s == c)
-			s++;
-		if (!*s)
-			break ;
-		else
-		{
+		if (*s == c && *(s + 1) && *(s + 1) != c)
 			cnt++;
-			s = ft_strchr(s, c);
-		}
+		s++;
 	}
 	return (cnt);
 }
