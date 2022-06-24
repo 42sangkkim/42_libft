@@ -6,7 +6,7 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 21:23:49 by sangkkim          #+#    #+#              #
-#    Updated: 2022/06/24 11:08:05 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/06/24 11:20:44 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,7 @@ SRCS_2:=ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_strmapi.c 
 
 SRCS_B:=ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstlast.c ft_lstadd_back.c ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c
 
-OBJS:=$(OBJS) $(SRCS_1:.c=.o) $(SRCS_2:.c=.o)
+OBJS:=$(SRCS_1:.c=.o) $(SRCS_2:.c=.o)
 
 .c.o :
 	$(CC) $(CFLAGS) -c -o $@ $<
@@ -48,4 +48,4 @@ fclean : clean
 re : fclean all
 
 bonus :
-	@make "OBJS:=$(SRCS_B:.c=.o)"
+	@make "OBJS:=$(OBJS) $(SRCS_B:.c=.o)"

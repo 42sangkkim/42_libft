@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 13:26:10 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/20 13:30:49 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:33:44 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,9 @@ size_t	ft_strlcat(char *dst, const char *src, size_t dst_size)
 	while (total_len < dst_size && dst[total_len])
 		total_len++;
 	while (total_len + 1 < dst_size && *src)
-		dst[total_len] = *src++;
-	dst[total_len] = '\0';
+		dst[total_len++] = *src++;
+	if (total_len < dst_size)
+		dst[total_len] = '\0';
 	while (*src++)
 		total_len++;
 	return (total_len);

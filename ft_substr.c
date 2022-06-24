@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:09:11 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/24 11:14:39 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:45:23 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,8 @@ char	*ft_substr(const char *s, unsigned int start, size_t len)
 	s_len = ft_strlen(s);
 	if (s_len < start)
 		return (NULL);
-	else if (s_len < (size_t)start + len)
+	s_len -= (size_t)start;
+	if (len > s_len)
 		return (ft_strdup(s + start));
 	else
 	{
