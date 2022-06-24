@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:28:58 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/23 20:44:44 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 23:06:21 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@ char	*ft_itoa(int n)
 	char	buffer[12];
 	char	*s;
 
-	ft_bzero(buffer, 12);
+	ft_bzero((char *)buffer, 12);
 	if (n == 0)
 		buffer[0] = '0';
 	else
-		ft_putnbr_buf(buffer, n);
-	s = ft_stdup(buffer);
+		ft_putnbr_buf((char *)buffer, n);
+	s = ft_strdup((char *)buffer);
 	if (!s)
 		return (NULL);
 	else
@@ -36,7 +36,7 @@ char	*ft_itoa(int n)
 
 static void	ft_putnbr_buf(char *buffer, int n)
 {
-	char	*digit_s[2];
+	char	digit_s[2];
 
 	if (n < 0)
 	{

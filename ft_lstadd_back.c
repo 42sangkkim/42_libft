@@ -1,39 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*   ft_lstadd_back.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/25 19:44:54 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/04/19 12:56:26 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/06/23 21:03:27 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/06/23 23:52:54 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
+#include "libft.h"
 
-void	*ft_calloc(size_t len, size_t size);
-
-int	build_uint(char *buffer, unsigned int n)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
-	if (n / 10)
-		build_uint(buffer, n / 10);
-	buffer[ft_strlen(buffer)] = n % 10 + '0';
-}
+	t_list	*last;
 
-char	*ft_itoa(int n)
-{
-	char	*buffer;
-
-	buffer = ft_calloc(12, sizeof(char));
-	if (!buffer)
-		return (NULL);
-	if (n < 0)
-	{
-		buffer[0] = '-';
-		build_uint(buffer, -n);
-	}
-	else
-		build_uint(buffer, n);
-	return (buffer);
+	last = ft_lstlast(*lst);
+	last -> next = new;
 }

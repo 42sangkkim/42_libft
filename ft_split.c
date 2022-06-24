@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:01:23 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/23 20:28:45 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 23:05:11 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char			*ft_strchr(const char *s, int c);
 char			*ft_substr(const char *s, unsigned int start, size_t len);
-static size_t	ft_count_word(const char *s);
+static size_t	count_word(const char *s, char c);
 
 char	**ft_split(const char *s, char c)
 {
@@ -22,7 +22,7 @@ char	**ft_split(const char *s, char c)
 	size_t	word_count;
 	size_t	i;
 
-	word_count = ft_count_word(s);
+	word_count = count_word(s, c);
 	words = calloc(word_count + 1, sizeof(char *));
 	if (!words)
 		return (NULL);
@@ -31,7 +31,7 @@ char	**ft_split(const char *s, char c)
 	{
 		while (*s == c)
 			s++;
-		words[i] = ft_substr(s, 0, ft_strchr(s, c) - 1);
+		words[i] = ft_substr(s, 0, (size_t)(ft_strchr(s, c) - s));
 		if (!words[i])
 		{
 			while (i--)
@@ -44,7 +44,7 @@ char	**ft_split(const char *s, char c)
 	return (words);
 }
 	
-static size_t	ft_count_word(const char *s, char c)
+static size_t	count_word(const char *s, char c)
 {
 	size_t	cnt;
 

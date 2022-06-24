@@ -1,22 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lstiter.c                                          :+:      :+:    :+:   */
+/*   ft_isascii.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 14:38:31 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/04/19 13:19:55 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/06/20 12:50:18 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/06/23 21:47:32 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../list.h"
-
-void	ft_lstiter(t_list *lst, void (*f)(void *))
+int	ft_isascii(int c)
 {
-	while (lst)
-	{
-		f(lst -> content);
-		lst = lst -> next;
-	}
+	return (0 <= c && c <= 127);
 }

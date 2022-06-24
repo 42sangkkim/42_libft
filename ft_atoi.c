@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 14:16:19 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/20 14:23:15 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 21:52:24 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int ft_atoi(const char *s)
 	else
 		sign = 1;
 	if (*s == '-' || *s == '+')
-		*s++;
+		s++;
 	value = 0;
 	while (ft_isdigit(*s))
 	{

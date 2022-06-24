@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:22:08 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/23 20:01:04 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 21:53:50 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ size_t	ft_strlen(const char *s);
 char	*ft_strchr(const char *s, int c);
 char	*ft_substr(const char *s, unsigned int start, size_t len);
 
-char	*ft_strtrim(const char *s1, cconst char *set)
+char	*ft_strtrim(const char *s1, const char *set)
 {
 	unsigned int	start;
 	size_t			len;

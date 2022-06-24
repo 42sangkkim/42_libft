@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 16:09:11 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/20 16:18:39 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/23 21:53:19 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 size_t	ft_strlen(const char *s);
 char	*ft_strdup(const char *s);
-size_t	strlcpy(char *dst, const char *src, size_t dst_len);
+size_t	ft_strlcpy(char *dst, const char *src, size_t dst_len);
 
 char	*ft_substr(const char *s, unsigned int start, size_t len)
 {

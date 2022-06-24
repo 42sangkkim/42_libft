@@ -1,22 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list.h                                             :+:      :+:    :+:   */
+/*   ft_lstclear.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/19 13:04:05 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/04/19 13:22:26 by sangkkim         ###   ########.fr       */
+/*   Created: 2022/06/23 21:11:06 by sangkkim          #+#    #+#             */
+/*   Updated: 2022/06/23 23:54:47 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIST_H
-# define LIST_H
+#include <stdlib.h>
+#include "libft.h"
 
-typedef struct s_list
+void	ft_lstclear(t_list **lst, void (*del)(void *))
 {
-	void			*content;
-	struct s_list	*next;
-}	t_list;
-
-#endif
+	if ((*lst) -> next)
+		ft_lstclear(&((*lst) -> next), del);
+	ft_lstdelone(*lst, del);
+}
