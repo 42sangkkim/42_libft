@@ -6,14 +6,14 @@
 #    By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/06/23 21:23:49 by sangkkim          #+#    #+#              #
-#    Updated: 2022/06/23 23:10:10 by sangkkim         ###   ########.fr        #
+#    Updated: 2022/06/24 11:08:05 by sangkkim         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME:=libft.a
 
-CC:=gcc
-CFLAGS:=#-Wall -Wextra -Werror
+CC:=cc
+CFLAGS:=-Wall -Wextra -Werror
 
 AR:=ar
 ARFLAGS:= rcus
@@ -35,7 +35,7 @@ OBJS:=$(OBJS) $(SRCS_1:.c=.o) $(SRCS_2:.c=.o)
 $(NAME) : $(OBJS)
 	$(AR) $(ARFLAGS) $@ $^
 
-.Phony : all clean fclean re bonus
+.PHONY : all clean fclean re bonus
 
 all : $(NAME)
 
@@ -43,8 +43,9 @@ clean :
 	$(RM) $(RMFLAGS) $(SRCS_1:.c=.o) $(SRCS_2:.c=.o) $(SRCS_B:.c=.o)
 
 fclean : clean
+	$(RM) $(RMFLAGS) $(NAME)
 
 re : fclean all
 
 bonus :
-	make "OBJS:=$(SRCS_B:.c=.o)"
+	@make "OBJS:=$(SRCS_B:.c=.o)"

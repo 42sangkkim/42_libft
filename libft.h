@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/20 11:25:39 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/23 23:14:25 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:15:32 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	ft_putnbr_fd(int n, int fd);
 
 // Bonus
 
-typedef struct	s_list
+typedef struct s_list
 {
 	void			*content;
 	struct s_list	*next;

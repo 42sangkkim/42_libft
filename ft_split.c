@@ -6,7 +6,7 @@
 /*   By: sangkkim <sangkkim@student.42seoul.kr>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/06/23 20:01:23 by sangkkim          #+#    #+#             */
-/*   Updated: 2022/06/23 23:05:11 by sangkkim         ###   ########.fr       */
+/*   Updated: 2022/06/24 11:14:00 by sangkkim         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char	**ft_split(const char *s, char c)
 	}
 	return (words);
 }
-	
+
 static size_t	count_word(const char *s, char c)
 {
 	size_t	cnt;
